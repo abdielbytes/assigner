@@ -46,24 +46,100 @@
                     <th>Action</th>
                 </tr>
                 </thead>
-{{--                <tbody>--}}
-{{--                @foreach($assignments as $assignment)--}}
-{{--                    <tr>--}}
-{{--                        <td>{{ $assignment->week }}</td>--}}
-{{--                        <td>{{ $assignment->assignment }}</td>--}}
-{{--                        <td>{{ $assignment->name }}</td>--}}
-{{--                        <td>{{ $assignment->assistant }}</td>--}}
-{{--                        <td>--}}
-{{--                            <form method="post" action="{{ route('assignments.print', ['id' => $assignment->id]) }}">--}}
-{{--                                @csrf--}}
-{{--                                <button type="submit">Print</button>--}}
-{{--                            </form>--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
-{{--                @endforeach--}}
-{{--                </tbody>--}}
+                <tbody>
+                @foreach($assignments as $assignment)
+                    <tr>
+                        <td>{{ $assignment->week }}</td>
+                        <td>{{ $assignment->assignment }}</td>
+                        <td>{{ $assignment->name }}</td>
+                        <td>{{ $assignment->assistant }}</td>
+                        <td>
+                            <form method="post" action="{{ route('assignments.print', ['id' => $assignment->id]) }}">
+                                @csrf
+                                <button type="submit">Print</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
             </table>
         </div>
 {{--    @endsection--}}
 
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        .assignment-form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #343a40;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .btn-print {
+            background-color: #28a745;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
 </x-app-layout>

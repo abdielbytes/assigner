@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AssignmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +26,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// routes/web.php
+
+
+
+Route::get('/assignments', [AssignmentController::class, 'index'])->name('assignments.index');
+Route::post('/assignments', [AssignmentController::class, 'store'])->name('assignments.store');
+Route::post('/assignments/{id}/print', [AssignmentController::class, 'print'])->name('assignments.print');

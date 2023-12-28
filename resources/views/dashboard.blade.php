@@ -20,8 +20,8 @@
             <h1>Assignment Tracker</h1>
 
             <!-- Form to add new entries -->
-{{--            <form method="post" action="{{ route('assignments.store') }}">--}}
-            <form method="post" >
+            <form method="post" action="{{ route('assignments.store') }}">
+{{--            <form method="post" >--}}
                 @csrf
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Assignment;
 
 use Illuminate\Http\Request;
 
@@ -10,8 +11,10 @@ class AssignmentController extends Controller
     public function index()
     {
         $assignments = Assignment::orderBy('created_at', 'desc')->get();
-        return view('assignment', ['assignments' => $assignments]);
+        return view('dashboard', ['assignments' => $assignments]);
     }
+
+
 
     public function store(Request $request)
     {

@@ -11,15 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assignments', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('week');
-            $table->string('name');
-            $table->string('assistant');
-            $table->string('assignment');
-
-        });
+        //
     }
 
     /**
@@ -27,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assignments');
+        //
     }
 };

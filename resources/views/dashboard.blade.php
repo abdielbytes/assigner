@@ -5,15 +5,6 @@
         </h2>
     </x-slot>
 
-{{--    <div class="py-12">--}}
-{{--        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">--}}
-{{--            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">--}}
-{{--                <x-welcome />--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-    <!-- resources/views/assignment.blade.php -->
-
 
 {{--    @section('content')--}}
         <div class="container">
@@ -30,16 +21,25 @@
                 <input type="text" id="assistant" name="assistant" required>
 
                 <label for="assignment">Assignment:</label>
-                <input type="text" id="assignment" name="assignment" required>
+                <select name="assignment" >
+                    <option value="Bible Reading">Bible Reading</option>
+                    <option value="Initial call">Initial Call</option>
+                    <option value="Return Visit">Return Visit</option>
+                    <option value="Bible Study">Bible Study</option>
+                    <option value="Talk">Talk</option>
 
-                <input type="submit" value="Add Assignment">
+                </select>
+{{--                <input type="text" id="assignment" name="assignment" required>--}}
+
+                <input type="submit" class="btn btn-primary value="Add Assignment">
+{{--                <button type="button" ">Primary</button>--}}
             </form>
 
             <!-- Table to display assignments -->
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Week</th>
+                    <th>Date</th>
                     <th>Assignment</th>
                     <th>Name</th>
                     <th>Assistant</th>
@@ -67,6 +67,9 @@
 {{--    @endsection--}}
 
     <style>
+        .btn {
+            color: #2563eb;
+        }
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f8f9fa;

@@ -29,7 +29,25 @@
                     <option value="Talk">Talk</option>
 
                 </select>
-{{--                <input type="text" id="assignment" name="assignment" required>--}}
+                <label for="week">Week:</label>
+                <select name="week">
+                    @php
+                        $loopDate = $now->copy()->subMonths(2);
+                    @endphp
+                    @for ($i = 0; $i < 20; $i++) {{-- Adjusted to 15 for 3 months past and 12 weeks future --}}
+                        <?php
+                        $startOfWeek = $loopDate->copy()->startOfWeek();
+                        $endOfWeek = $startOfWeek->copy()->endOfWeek();
+                        $weekRange = $startOfWeek->format('M d, Y') . ' - ' . $endOfWeek->format('M d, Y');
+                        ?>
+                    <option value="{{ $weekRange }}">{{ $weekRange }}</option>
+                    @php
+                        $loopDate->addWeek();
+                    @endphp
+                    @endfor
+                </select>
+
+                {{--                <input type="text" id="assignment" name="assignment" required>--}}
 
                 <input type="submit" class="btn btn-primary value="Add Assignment">
 {{--                <button type="button" ">Primary</button>--}}

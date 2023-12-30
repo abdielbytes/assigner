@@ -8,12 +8,21 @@ use Illuminate\Http\Request;
 
 class AssignmentController extends Controller
 {
-
     public function index()
     {
         $assignments = Assignment::orderBy('created_at', 'desc')->get();
-        return view('dashboard', ['assignments' => $assignments]);
+
+        // Get the current week range
+        $now = Carbon::now();
+
+
+        return view('dashboard', [
+            'assignments' => $assignments,
+
+            'now' => $now, // Add this line to pass $now to the view
+        ]);
     }
+
 
 
 
@@ -25,10 +34,11 @@ class AssignmentController extends Controller
             'assignment' => 'required',
         ]);
 
-        $week = Carbon::now()->startOfWeek()->format('M d, Y') . ' - ' . Carbon::now()->endOfWeek()->format('M d, Y');
+//        $week = Carbon::now()->startOfWeek()->format('M d, Y') . ' - ' . Carbon::now()->endOfWeek()->format('M d, Y');
 
         Assignment::create([
-            'week' => $week,
+//            'week' => $week,
+            'week'=> $request->input('week'),
             'name' => $request->input('name'),
             'assistant' => $request->input('assistant'),
             'assignment' => $request->input('assignment'),

@@ -50,7 +50,7 @@
                 {{--                <input type="text" id="assignment" name="assignment" required>--}}
 
                 <input type="submit" class="btn btn-primary value="Add Assignment">
-{{--                <button type="button" ">Primary</button>--}}
+{{--              
             </form>
 
             <!-- Table to display assignments -->

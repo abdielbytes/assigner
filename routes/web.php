@@ -32,3 +32,4 @@ Route::middleware([
 Route::get('/assignments', [AssignmentController::class, 'index'])->name('assignments.index');
 Route::post('/assignments', [AssignmentController::class, 'store'])->name('assignments.store');
 Route::post('/assignments/{id}/print', [AssignmentController::class, 'print'])->name('assignments.print');
+Route::get('/generate-pdf', 'AssignmentController@generatePdf')->name('generate.pdf');

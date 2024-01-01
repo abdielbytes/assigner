@@ -19,7 +19,7 @@ class AssignmentController extends Controller
         return view('dashboard', [
             'assignments' => $assignments,
 
-            'now' => $now, // Add this line to pass $now to the view
+            'now' => $now,
         ]);
     }
 
@@ -30,14 +30,12 @@ class AssignmentController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'assistant' => 'required',
             'assignment' => 'required',
+            'week'=> 'required',
         ]);
 
-//        $week = Carbon::now()->startOfWeek()->format('M d, Y') . ' - ' . Carbon::now()->endOfWeek()->format('M d, Y');
 
         Assignment::create([
-//            'week' => $week,
             'week'=> $request->input('week'),
             'name' => $request->input('name'),
             'assistant' => $request->input('assistant'),
@@ -46,24 +44,7 @@ class AssignmentController extends Controller
 
         return redirect()->route('assignments.index');
     }
-//    public function generatePdf()
-//    {
-//        $assignments = Assignment::orderBy('created_at', 'desc')->get();
-//
-//        // You can customize the PDF view according to your needs.
-//        $pdf = PDF::loadView('pdf.assignments', ['assignments' => $assignments]);
-//
-//        // Generate a filename for the PDF (you can customize this)
-//        $filename = 'assignments_' . now()->format('YmdHis') . '.pdf';
-//
-//        // Save the PDF to the storage or public directory
-//        $pdf->save(storage_path('app/public/' . $filename));
-//
-//        // Optionally, you can store the file path in the database or return it for download
-//        // For example, you might save the file path in the database for future reference.
-//
-//        return redirect()->back()->with('success', 'PDF generated successfully.');
-//    }
+
     public function print($id)
     {
         $assignment = Assignment::findOrFail($id);

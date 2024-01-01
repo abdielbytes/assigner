@@ -166,11 +166,12 @@ return [
         App\Providers\AppServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+
     ])->toArray(),
 
 
@@ -190,7 +191,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ])->toArray(),
-    'PDF' => Barryvdh\DomPDF\Facade::class,
+
 
 ];

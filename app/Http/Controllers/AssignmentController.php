@@ -41,7 +41,7 @@ class AssignmentController extends Controller
     }
 
 
-//
+
 //    public function print($id)
 //    {
 //        $assignment = Assignment::findOrFail($id);

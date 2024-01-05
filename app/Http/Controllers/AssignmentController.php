@@ -68,6 +68,7 @@ class AssignmentController extends Controller
 
         // Step 4: Optionally, return the file path for download
 //        return $pdf->download($filename);
+        $pdf->setPaper('a4', 'portrait');
         return $pdf->stream($filename);
 //        dd($filename);
     }

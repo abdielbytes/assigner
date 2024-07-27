@@ -11,7 +11,6 @@
 <ul>
     <li>Exclusive Offers: Enjoy special promotions and discounts available only to our members.</li>
     <li>Exclusive Offers: Enjoy special promotions and discounts available only to our members.</li>
-    <li>Exclusive Offers: Enjoy special promotions and discounts available only to our members.</li>
 </ul>
 <a href="#" style="background-color: orange; color: white; padding: 10px; text-decoration: none;">Learn More About Us</a>
 <p>Regards,</p>

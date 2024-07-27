@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AssignmentController;
+use App\Jobs\SendGeneralEmailJob; // Import the job class
+use App\Jobs\SendEmailJob;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,11 +27,8 @@ Route::middleware([
     Route::get('/dashboard', [AssignmentController::class, 'index'])->name('dashboard');
 });
 
-// routes/web.php
-
-
 
 Route::get('/assignments', [AssignmentController::class, 'index'])->name('assignments.index');
 Route::post('/assignments', [AssignmentController::class, 'store'])->name('assignments.store');
 Route::post('/assignments/{id}/print', [AssignmentController::class, 'print'])->name('assignments.print');
-Route::get('/generate-pdf', 'AssignmentController@generatePdf')->name('generate.pdf');
+Route::get('/generate-pdf', [AssignmentController::class, 'generatePdf'])->name('generate.pdf');
